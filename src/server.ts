@@ -1,11 +1,11 @@
-// environment
-require("dotenv").config();
+import express from "express";
+import { urlencoded, json } from "body-parser";
+import morgan from "morgan";
+import cors from "cors";
+import dotenv from "dotenv";
+import api from "./api";
 
-// imports
-const express = require("express");
-const { urlencoded, json } = require("body-parser");
-const morgan = require("morgan");
-const cors = require("cors");
+dotenv.config();
 
 // server
 const app = express();
@@ -13,12 +13,11 @@ const port = process.env.PORT || 3000;
 
 // middleware
 app.use(cors());
-app.use(morgan("tiny"));
+app.use(morgan("dev"));
 app.use(urlencoded({ extended: false }));
 app.use(json());
 
 // routes
-const api = require("./api");
 app.use("/api", api);
 
 // start up server

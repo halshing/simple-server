@@ -2,8 +2,8 @@
 
 #### Get Started
 1. Clone the repo
-2. `npm install`
-3. `npm start`
+2. `yarn install`
+3. `yarn start`
 
 #### Making Requests
 
